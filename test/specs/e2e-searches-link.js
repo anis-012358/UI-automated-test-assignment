@@ -3,7 +3,7 @@ const assert = require('assert');
 
 describe('Popular Searches links', () => {
   
-    it('should work correctly', async () => {
+    it('should work correctly', async() => {
         await browser.url('https://bayut.com')
 
         const popularSearchesSectionDiv = await browser.$('._2fddc99a')
@@ -16,7 +16,6 @@ describe('Popular Searches links', () => {
         const columnTitle = await popularSearchesSectionDiv.$('=Dubai Apartments')
         const column = await columnTitle.$(function () { return this.parentNode.nextSibling})
         const links = await column.$$('._78d325fa')
-        const toroldKI = await links[0].getAttribute('href');
         
         for (let i = 0; i < links.length; i++){
             const href = await links[i].getAttribute('href');
@@ -25,6 +24,5 @@ describe('Popular Searches links', () => {
                     .then((res) => expect(res.status).toEqual(200)) //200 OK 
             })
         }
-        
     });
 });

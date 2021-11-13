@@ -1,12 +1,11 @@
 describe('Searching results', () => {
-    
     it('should match with the criteria', async () => {
         await browser.url('https://bayut.com')
-    
+
         const locationInput = await browser.$('.a41c4dcc._6a3a3de9')
         await locationInput.setValue('Dubai Marina')
         await locationInput.keys('Enter')
-    
+        
         const purposeBtn = await browser.$('.ef5cccac')
         await purposeBtn.click()
         const buyItem = await browser.$('._933a9a61._5dd5033c') 
@@ -21,7 +20,6 @@ describe('Searching results', () => {
             await expect(el).toHaveTextContaining('Dubai Marina')
         }
     });
-
 });
 
 
