@@ -1,12 +1,10 @@
 describe('Searching results', () => {
     
-    const location = 'Dubai Marina';
-    
     it('should match with the criteria', async () => {
         await browser.url('https://bayut.com')
     
         const locationInput = await browser.$('.a41c4dcc._6a3a3de9')
-        await locationInput.setValue(location)
+        await locationInput.setValue('Dubai Marina')
         await locationInput.keys('Enter')
     
         const purposeBtn = await browser.$('.ef5cccac')
@@ -20,7 +18,7 @@ describe('Searching results', () => {
         const propertiesList = await browser.$('._357a9937').$$('.ef447dde'); //Properties for sale 
         for (let i = 0; i < propertiesList.length; i++){
             const el = await propertiesList[i].$('._7afabd84');
-            await expect(el).toHaveTextContaining(location)
+            await expect(el).toHaveTextContaining('Dubai Marina')
         }
     });
 
