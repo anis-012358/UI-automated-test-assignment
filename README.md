@@ -1,4 +1,4 @@
 How to run?
 
 npm i
-node e2e-test.js
+npx wdio run ./wdio.conf.js
