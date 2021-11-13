@@ -1,13 +1,8 @@
-const { remote } = require('webdriverio'); //using WebdriverIO as a package
-
-describe('Bayout website searching', () => {
+describe('Searching results', () => {
+    
     const location = 'Dubai Marina';
+    
     it('should match with the criteria', async () => {
-        const browser = await remote({
-            capabilities: {
-                browserName: 'chrome'
-            }
-        })
         await browser.url('https://bayut.com')
     
         const locationInput = await browser.$('.a41c4dcc._6a3a3de9')
@@ -28,6 +23,7 @@ describe('Bayout website searching', () => {
             await expect(el).toHaveTextContaining(location)
         }
     });
+
 });
 
 
